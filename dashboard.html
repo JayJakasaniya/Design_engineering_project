@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/page.css">
+
+    <title>Dashboard</title>
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+
+        <!-- <div class="header__img">
+            <img src="assets/img/perfil.jpg" alt="">
+        </div> -->
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="dashboard.html" class="nav__logo">
+                    <i class='bx bx-layer nav__logo-icon'></i>
+                    <span class="nav__logo-name">Bedimcode</span>
+                </a>
+
+                <div class="nav__list">
+                    <a href="dashboard.html" class="nav__link active">
+                        <i class='bx bx-grid-alt nav__icon'></i>
+                        <span class="nav__name">Dashboard</span>
+                    </a>
+
+                    <a href="Payment.html" class="nav__link">
+                        <i class='bx bx-money nav__icon'></i>
+                        <span class="nav__name">Payment</span>
+                    </a>
+
+                    <a href="Accountstatement.html" class="nav__link">
+                        <i class='bx bx-file nav__icon'></i>
+                        <span class="nav__name">Account Statement</span>
+                    </a>
+
+                    <a href="cctv.html" class="nav__link">
+                        <i class='bx bx-cctv nav__icon'></i>
+                        <span class="nav__name">CCTV</span>
+                    </a>
+
+                    <a href="message.html" class="nav__link">
+                        <i class='bx bx-message-square-detail nav__icon'></i>
+                        <span class="nav__name">Messages</span>
+                    </a>
+
+                    <a href="settings.html" class="nav__link">
+                        <i class='bx bx-cog nav__icon'></i>
+                        <span class="nav__name">Settings</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="index.html" class="nav__link">
+                <i class='bx bx-log-out nav__icon'></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <h1>Dashboard</h1>
+    <div class="card-box">
+        <div class="card">
+            <h1>This month bill</h1>
+            <p> &#x20B9; 6500 Rs</p>
+        </div>
+        <div class="card">
+            <h1>Total balance</h1>
+            <p> &#x20B9; 550000 Rs</p>
+        </div>
+        <div class="card">
+            <h1>Event</h1>
+            <p> Holi / dhuleti</p>
+        </div>
+    </div>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <!--===== MAIN JS =====-->
+    <script src="js/main.js"></script>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                exportEnabled: true,
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
+                title: {
+                    text: "Yearly bill Graph"
+                },
+                axisY: {
+                    includeZero: true
+                },
+                data: [{
+                    type: "column", //change type to bar, line, area, pie, etc
+                    //indexLabel: "{y}", //Shows y value on all Data Points
+                    indexLabelFontColor: "#5A5757",
+                    indexLabelFontSize: 16,
+                    indexLabelPlacement: "outside",
+                    dataPoints: [
+                        { x: 10, y: 71 },
+                        { x: 20, y: 55 },
+                        { x: 30, y: 50 },
+                        { x: 40, y: 65 },
+                        { x: 50, y: 92, indexLabel: "\u2605 Highest" },
+                        { x: 60, y: 68 },
+                        { x: 70, y: 38 },
+                        { x: 80, y: 71 },
+                        { x: 90, y: 54 },
+                        { x: 100, y: 60 },
+                        { x: 110, y: 36 },
+                        { x: 120, y: 49 },
+                        { x: 130, y: 21, indexLabel: "\u2691 Lowest" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
